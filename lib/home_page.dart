@@ -12,10 +12,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Builder(
-      builder: (context) {
-        final counter = Provider.of<CounterModel>(context);
-        return Scaffold(appBar: AppBar(title: const Text('Counter Provider')));
+    return Consumer<CounterModel>(
+      builder: (context, value, child) {
+        return Scaffold(
+          appBar: AppBar(title: const Text('Counter Provider')),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Text('You have pushed the button this many times:'),
+                Text(
+                  '${value.angka}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
+            ),
+          ),
+        );
       },
     );
   }
