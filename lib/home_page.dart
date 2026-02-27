@@ -28,6 +28,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          floatingActionButton: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              FloatingActionButton(
+                onPressed: value.increment,
+                tooltip: 'Increment',
+                child: const Icon(Icons.add),
+              ),
+              const SizedBox(width: 16),
+              FloatingActionButton(
+                onPressed: value.decrement,
+                tooltip: 'Decrement',
+                child: const Icon(Icons.remove),
+              ),
+            ],
+          ),
         );
       },
     );
